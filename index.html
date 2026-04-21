@@ -1,0 +1,1482 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olinda Johnson, PhD — Nurse Educator & Speaker | OlindaJohnsonSpeaks.com</title>
+  <meta name="description" content="AWHONN Instructor Trainer and nurse educator delivering CEU-qualifying trainings for hospitals, universities, and nursing programs. Book Dr. Olinda Johnson, PhD, RNC, CNS, APN." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --lavender-900: #2B2140;
+      --lavender-700: #4A3E70;
+      --lavender-500: #6D5E95;
+      --lavender-300: #A89BC7;
+      --lavender-100: #EDE7F6;
+      --lavender-050: #F7F4FB;
+
+      --silver-500: #9DA2AE;
+      --silver-400: #B8BCC8;
+      --silver-200: #D6D9E0;
+      --silver-100: #E5E7EC;
+
+      --ink: #221E2E;
+      --body: #3E3A4A;
+      --muted: #6B6878;
+
+      --cream: #FDFCFF;
+      --white: #FFFFFF;
+
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      --max: 1180px;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    /* ---------- Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--body);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--lavender-700); text-decoration: none; transition: color .2s ease; }
+    a:hover { color: var(--lavender-900); }
+    h1, h2, h3, h4 {
+      font-family: var(--serif);
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin: 0;
+    }
+    p { margin: 0 0 1em 0; }
+    button { font: inherit; cursor: pointer; }
+
+    /* ---------- Layout primitives ---------- */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+
+    .section {
+      padding: clamp(4rem, 9vw, 7rem) 0;
+      position: relative;
+    }
+    .section--alt {
+      background: var(--lavender-050);
+    }
+    .section__marker {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--lavender-500);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .section__marker::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: var(--silver-400);
+    }
+    .section__title {
+      font-size: clamp(2rem, 4.2vw, 3rem);
+      max-width: 28ch;
+      margin-bottom: 1rem;
+    }
+    .section__lead {
+      font-size: 1.1rem;
+      max-width: 58ch;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(253, 252, 255, 0.88);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--silver-100);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.1rem;
+      padding-bottom: 1.1rem;
+    }
+    .nav__brand {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .nav__brand span { color: var(--lavender-500); }
+    .nav__links {
+      display: none;
+      gap: 2rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .nav__links a {
+      color: var(--body);
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+    .nav__cta {
+      background: var(--lavender-700);
+      color: var(--white);
+      border: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .nav__cta:hover { background: var(--lavender-900); transform: translateY(-1px); }
+    .nav__brand { white-space: nowrap; }
+    @media (max-width: 480px) {
+      .nav__brand { font-size: 1rem; }
+      .nav__cta { font-size: 0.82rem; padding: 0.55rem 0.95rem; }
+    }
+    /* Hamburger toggle (CSS-only) */
+    .nav__toggle { display: none; }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
+      background: none;
+      border: none;
+    }
+    .nav__hamburger-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform .25s ease, opacity .2s ease;
+    }
+
+    @media (max-width: 719px) {
+      .nav__hamburger { display: flex; }
+      .nav__links {
+        position: fixed;
+        top: 62px;
+        left: 0; right: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--silver-100);
+        flex-direction: column;
+        padding: 0.5rem 0;
+        z-index: 19;
+        gap: 0;
+        box-shadow: 0 8px 24px -8px rgba(43,33,64,.15);
+      }
+      .nav__links a {
+        display: block;
+        padding: 0.95rem var(--gutter);
+        border-bottom: 1px solid var(--silver-100);
+        font-size: 1rem;
+      }
+      /* Show nav when checkbox is checked */
+      .nav__toggle:checked ~ .wrap .nav__links { display: flex; }
+      /* Animate bars into X */
+      .nav__toggle:checked ~ .wrap .nav__hamburger .nav__hamburger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav__toggle:checked ~ .wrap .nav__hamburger .nav__hamburger-bar:nth-child(2) { opacity: 0; }
+      .nav__toggle:checked ~ .wrap .nav__hamburger .nav__hamburger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    @media (min-width: 720px) {
+      .nav__links { display: flex; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: clamp(4rem, 8vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem);
+      background:
+        radial-gradient(ellipse at top right, rgba(168, 155, 199, 0.18), transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(184, 188, 200, 0.12), transparent 50%),
+        var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__inner {
+      display: grid;
+      gap: clamp(2.5rem, 5vw, 4rem);
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .hero__inner { grid-template-columns: 1.3fr 1fr; }
+    }
+    .hero__eyebrow {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--lavender-500);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero__name {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 400;
+      line-height: 1.02;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+    }
+    .hero__creds {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      color: var(--lavender-700);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+    .hero__tagline {
+      font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+      color: var(--body);
+      max-width: 46ch;
+      margin-bottom: 2.25rem;
+      line-height: 1.55;
+    }
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 1.7rem;
+      border-radius: 999px;
+      font-size: 0.97rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border: none;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .btn--primary {
+      background: var(--lavender-700);
+      color: var(--white);
+    }
+    .btn--primary:hover {
+      background: var(--lavender-900);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--silver-400);
+    }
+    .btn--ghost:hover {
+      border-color: var(--lavender-500);
+      color: var(--lavender-700);
+    }
+
+    /* Headshot */
+    .hero__portrait {
+      position: relative;
+      justify-self: center;
+      width: min(100%, 420px);
+      aspect-ratio: 1;
+    }
+    .hero__portrait-frame {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow:
+        0 1px 0 var(--silver-200),
+        0 30px 60px -20px rgba(43, 33, 64, 0.25);
+      border: 1px solid var(--silver-200);
+    }
+    .hero__portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .hero__portrait-ring {
+      position: absolute;
+      inset: -14px;
+      border-radius: 50%;
+      border: 1px solid var(--silver-400);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .hero__portrait-ring--outer {
+      position: absolute;
+      inset: -32px;
+      border-radius: 50%;
+      border: 1px dashed var(--lavender-300);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    /* ---------- Trusted by ---------- */
+    .trusted {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--silver-100);
+      border-bottom: 1px solid var(--silver-100);
+      background: var(--white);
+    }
+    .trusted__label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .trusted__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .trusted__list li {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lavender-900);
+    }
+
+    /* ---------- About ---------- */
+    .about__grid {
+      display: grid;
+      gap: clamp(2rem, 4vw, 3.5rem);
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .about__grid { grid-template-columns: 1.5fr 1fr; }
+    }
+    .about__body p {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: var(--body);
+    }
+    .about__body p + p { margin-top: 1.2rem; }
+    .about__pull {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--lavender-700);
+      line-height: 1.45;
+      border-left: 2px solid var(--lavender-300);
+      padding-left: 1.5rem;
+      margin: 2rem 0 0;
+      max-width: 34ch;
+    }
+    .creds {
+      background: var(--white);
+      border: 1px solid var(--silver-200);
+      padding: 2rem 1.75rem;
+      border-radius: 4px;
+    }
+    .creds__title {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--lavender-500);
+      margin-bottom: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+    .creds__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .creds__list li {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--silver-100);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .creds__list li:last-child { border-bottom: none; }
+    .creds__name { font-weight: 500; color: var(--ink); font-size: 0.97rem; }
+    .creds__meta { color: var(--muted); font-size: 0.85rem; font-family: var(--serif); font-style: italic; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--silver-200);
+    }
+    @media (max-width: 620px) {
+      .stats { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .stat__num {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      color: var(--lavender-700);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .stat__num sup { font-size: 0.4em; top: -1.6em; color: var(--lavender-500); }
+    .stat__label {
+      margin-top: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      max-width: 22ch;
+    }
+
+    /* ---------- Topics ---------- */
+    .topics {
+      display: grid;
+      gap: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    .topic-group {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .topic-group { grid-template-columns: 1fr 2fr; gap: 2.5rem; align-items: start; }
+    }
+    .topic-group__label {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--ink);
+      font-style: italic;
+      font-weight: 400;
+      position: relative;
+      padding-left: 1rem;
+      border-left: 2px solid var(--lavender-500);
+    }
+    .topic-group__hint {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      font-style: normal;
+      font-family: var(--sans);
+      padding-left: 1rem;
+    }
+    .topic-cards {
+      display: grid;
+      gap: 1rem;
+    }
+    .topic {
+      background: var(--white);
+      border: 1px solid var(--silver-200);
+      padding: 1.75rem 1.75rem 1.5rem;
+      border-radius: 4px;
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .topic:hover {
+      border-color: var(--lavender-300);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -16px rgba(43, 33, 64, 0.18);
+    }
+    .topic__title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+    .topic__desc {
+      font-size: 0.98rem;
+      color: var(--body);
+      margin-bottom: 1rem;
+    }
+    .topic__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.75rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--silver-100);
+    }
+    .tag {
+      font-size: 0.78rem;
+      color: var(--lavender-700);
+      background: var(--lavender-100);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      font-weight: 500;
+    }
+    .tag--muted {
+      background: var(--silver-100);
+      color: var(--muted);
+    }
+    .tag--ceu {
+      background: transparent;
+      border: 1px dashed var(--lavender-300);
+      color: var(--lavender-700);
+    }
+
+    /* ---------- Engagements ---------- */
+    .engagements {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--silver-200);
+    }
+    .engagement {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--silver-100);
+      align-items: baseline;
+    }
+    @media (min-width: 720px) {
+      .engagement { grid-template-columns: 140px 1.5fr 1fr; gap: 2rem; }
+    }
+    .engagement__date {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--lavender-700);
+    }
+    .engagement__title {
+      font-size: 1.02rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .engagement__host {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* ---------- Testimonials ---------- */
+    .testimonials {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 820px) {
+      .testimonials { grid-template-columns: repeat(3, 1fr); }
+    }
+    .quote {
+      background: var(--white);
+      border: 1px solid var(--silver-200);
+      padding: 2rem 1.75rem;
+      border-radius: 4px;
+      position: relative;
+    }
+    .quote::before {
+      content: "\201C";
+      font-family: var(--serif);
+      font-size: 4rem;
+      line-height: 0.8;
+      color: var(--lavender-300);
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      opacity: 0.6;
+    }
+    .quote__body {
+      position: relative;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--body);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+      padding-top: 1.25rem;
+    }
+    .quote__attr {
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-top: 1px solid var(--silver-100);
+      padding-top: 1rem;
+    }
+    .quote__name { color: var(--ink); font-weight: 600; font-family: var(--sans); font-style: normal; display: block; }
+
+    /* ---------- Logistics ---------- */
+    .logistics {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .logistics { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1020px) {
+      .logistics { grid-template-columns: repeat(4, 1fr); }
+    }
+    .logistic {
+      padding: 1.75rem 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--silver-200);
+      border-radius: 4px;
+    }
+    .logistic__label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--lavender-500);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+    .logistic__val {
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    /* ---------- Booking form ---------- */
+    .booking {
+      background: var(--lavender-050);
+    }
+    .booking__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3.5rem);
+    }
+    @media (min-width: 960px) {
+      .booking__inner { grid-template-columns: 1fr 1.4fr; }
+    }
+    .booking__intro .section__title { margin-bottom: 1.5rem; }
+    .booking__steps {
+      list-style: none;
+      margin: 2rem 0 0;
+      padding: 0;
+      counter-reset: step;
+    }
+    .booking__steps li {
+      counter-increment: step;
+      padding: 1rem 0 1rem 2.75rem;
+      position: relative;
+      font-size: 0.97rem;
+      color: var(--body);
+      border-top: 1px solid var(--silver-200);
+    }
+    .booking__steps li:last-child { border-bottom: 1px solid var(--silver-200); }
+    .booking__steps li::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 0;
+      top: 1rem;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--lavender-500);
+    }
+
+    .form {
+      background: var(--white);
+      padding: clamp(2rem, 3vw, 2.75rem);
+      border-radius: 4px;
+      border: 1px solid var(--silver-200);
+      box-shadow: 0 30px 60px -30px rgba(43, 33, 64, 0.15);
+    }
+    .form__row {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 600px) {
+      .form__row--2 { grid-template-columns: 1fr 1fr; }
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .field label {
+      font-size: 0.83rem;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .field label .required { color: var(--lavender-500); }
+    .field input,
+    .field select,
+    .field textarea {
+      font: inherit;
+      font-size: 0.97rem;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--silver-200);
+      border-radius: 3px;
+      background: var(--white);
+      color: var(--ink);
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--lavender-500);
+      box-shadow: 0 0 0 3px var(--lavender-100);
+    }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form__submit {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    .form__note {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-top: 0.9rem;
+      text-align: center;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background: var(--lavender-900);
+      color: var(--silver-200);
+      padding: 3.5rem 0 2rem;
+    }
+    .footer__top {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(168, 155, 199, 0.25);
+    }
+    @media (min-width: 760px) {
+      .footer__top { grid-template-columns: 1.5fr 1fr 1fr; }
+    }
+    .footer__brand {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer__brand span { color: var(--lavender-300); }
+    .footer__bio {
+      font-size: 0.92rem;
+      color: var(--silver-400);
+      max-width: 38ch;
+      line-height: 1.55;
+    }
+    .footer__heading {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--lavender-300);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .footer__list {
+      list-style: none; margin: 0; padding: 0;
+    }
+    .footer__list li { padding: 0.25rem 0; font-size: 0.92rem; }
+    .footer__list a { color: var(--silver-200); }
+    .footer__list a:hover { color: var(--white); }
+    .footer__bot {
+      padding-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--silver-500);
+    }
+
+    /* ---------- Photo gallery ---------- */
+    .photo-section {
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      background: var(--white);
+      border-top: 1px solid var(--silver-100);
+      border-bottom: 1px solid var(--silver-100);
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 245px 245px 220px;
+      gap: 0.65rem;
+    }
+    .photo-grid__item {
+      overflow: hidden;
+      border-radius: 3px;
+      background: var(--silver-100);
+    }
+    .photo-grid__item--tall { grid-row: span 2; }
+    .photo-grid__item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .photo-grid__item:hover img { transform: scale(1.04); }
+    .photo-caption {
+      margin-top: 1.1rem;
+      text-align: center;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .photo-caption strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--lavender-700);
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 720px) {
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 165px);
+      }
+      .photo-grid__item--tall { grid-row: span 1; }
+      .photo-grid__item--bottom-wide { grid-column: span 2; }
+    }
+    @media (max-width: 480px) {
+      .photo-grid { grid-template-rows: repeat(3, 140px); }
+    }
+
+    /* ---------- Form validation ---------- */
+    .field input[type="date"] { cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .field__error {
+      font-size: 0.76rem;
+      color: #b0302b;
+      margin-top: 0.25rem;
+      display: none;
+      line-height: 1.4;
+    }
+    .form--validated .field input:invalid,
+    .form--validated .field select:invalid {
+      border-color: #b0302b;
+      box-shadow: 0 0 0 3px rgba(176, 48, 43, 0.1);
+    }
+    .form--validated .field input:invalid ~ .field__error,
+    .form--validated .field select:invalid ~ .field__error {
+      display: block;
+    }
+    /* Keep error hidden while user is actively fixing */
+    .form--validated .field input:focus:invalid,
+    .form--validated .field select:focus:invalid {
+      box-shadow: 0 0 0 3px var(--lavender-100);
+    }
+
+    /* ---------- Placeholder flag ---------- */
+    .placeholder {
+      color: var(--lavender-500);
+      font-style: italic;
+      background: linear-gradient(transparent 62%, var(--lavender-100) 62%);
+      padding: 0 0.1em;
+    }
+
+    /* ---------- Subtle page load ---------- */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero__eyebrow, .hero__name, .hero__creds, .hero__tagline, .hero__ctas {
+        opacity: 0;
+        animation: fadeUp .8s ease forwards;
+      }
+      .hero__eyebrow { animation-delay: .1s; }
+      .hero__name    { animation-delay: .2s; }
+      .hero__creds   { animation-delay: .35s; }
+      .hero__tagline { animation-delay: .5s; }
+      .hero__ctas    { animation-delay: .65s; }
+      .hero__portrait {
+        opacity: 0;
+        animation: fadeIn 1.2s ease .15s forwards;
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <input type="checkbox" id="nav-toggle" class="nav__toggle" aria-hidden="true" />
+    <div class="wrap nav__inner">
+      <a href="#top" class="nav__brand">Olinda Johnson<span>, PhD</span></a>
+      <nav>
+        <label for="nav-toggle" class="nav__hamburger" aria-label="Open navigation menu">
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+          <span class="nav__hamburger-bar"></span>
+        </label>
+        <ul class="nav__links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#topics">Topics</a></li>
+          <li><a href="#engagements">Engagements</a></li>
+          <li><a href="#logistics">Logistics</a></li>
+        </ul>
+      </nav>
+      <a href="#book" class="nav__cta">Request Training</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <div class="hero__eyebrow">— AWHONN Instructor Trainer &middot; Clinical Educator &middot; Nurse Scholar &middot; Houston, TX</div>
+        <h1 class="hero__name">Olinda Johnson,<br />PhD</h1>
+        <div class="hero__creds">RNC &middot; CNS &middot; APN</div>
+        <p class="hero__tagline">
+          Results-driven CEU training in fetal monitoring, high-risk obstetrics, and health equity. An AWHONN Instructor Trainer with 45 years at the bedside — delivering programs that build the clinical competency hospitals can see and measure.
+        </p>
+        <div class="hero__ctas">
+          <a href="#book" class="btn btn--primary">Request Training</a>
+          <a href="#topics" class="btn btn--ghost">View Training Topics</a>
+        </div>
+      </div>
+      <div class="hero__portrait">
+        <div class="hero__portrait-ring--outer" aria-hidden="true"></div>
+        <div class="hero__portrait-ring" aria-hidden="true"></div>
+        <div class="hero__portrait-frame">
+          <img src="dr-johnson-headshot.jpg" alt="Portrait of Dr. Olinda Johnson, PhD, RNC, CNS, APN" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUSTED BY ============ -->
+  <section class="trusted" aria-label="Trusted by">
+    <div class="wrap">
+      <div class="trusted__label">Trusted by leading nursing and healthcare organizations</div>
+      <ul class="trusted__list">
+        <li>AWHONN</li>
+        <li>NBNA</li>
+        <li>Sigma Theta Tau</li>
+        <li>Houston Methodist</li>
+        <li>Texas Woman&rsquo;s University</li>
+        <li>Harris Health</li>
+        <li>HACPP</li>
+        <li>March of Dimes</li>
+        <li>American Heart Assn.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ PHOTO GALLERY ============ -->
+  <section class="photo-section" aria-label="Clinical photography">
+    <div class="wrap">
+      <div class="photo-grid">
+        <div class="photo-grid__item photo-grid__item--tall">
+          <img src="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=800&h=1100&fit=crop"
+               alt="Nurse caring for a newborn in the delivery room" />
+        </div>
+        <div class="photo-grid__item">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=700&h=500&fit=crop&auto=format"
+               alt="Newborn baby feet — perinatal care" />
+        </div>
+        <div class="photo-grid__item">
+          <img src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=700&h=500&fit=crop"
+               alt="Nursing professional with stethoscope" />
+        </div>
+        <div class="photo-grid__item">
+          <img src="https://images.pexels.com/photos/5214952/pexels-photo-5214952.jpeg?auto=compress&cs=tinysrgb&w=700&h=500&fit=crop"
+               alt="Nurse listening to patient with stethoscope" />
+        </div>
+        <div class="photo-grid__item photo-grid__item--wide">
+          <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=1100&h=500&fit=crop&auto=format"
+               alt="Nursing team working in a clinical setting" />
+        </div>
+      </div>
+      <p class="photo-caption">
+        <strong>Houston, Texas &nbsp;&middot;&nbsp; Texas Medical Center &nbsp;&middot;&nbsp; 45 Years at the Bedside</strong><br />
+        From Houston&rsquo;s labor &amp; delivery units to national conference podiums &mdash; perinatal care, health equity, and the nurses who show up every shift.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section__marker">01 &nbsp;&middot;&nbsp; About</div>
+      <h2 class="section__title">Four decades of clinical authority, meeting the floor where nurses actually work.</h2>
+
+      <div class="about__grid">
+        <div class="about__body">
+          <p>
+            Dr. Olinda Johnson has spent forty-five years moving between the bedside, the classroom, and the conference podium. She holds a PhD in Nursing from Texas Woman&rsquo;s University, where her dissertation research on bereavement intervention for pregnancy loss was later published in the <em>Journal of Obstetric, Gynecologic &amp; Neonatal Nursing</em> and named a runner-up for the 2016 Best of JOGNN Writing Award.
+          </p>
+          <p>
+            She serves as a Clinical Educator at Houston Methodist and has taught at Texas Woman&rsquo;s University as an Assistant Professor and Adjunct Faculty since 1992. She holds AWHONN Instructor Trainer credentials for both Intermediate and Advanced Fetal Monitoring &mdash; a distinction held by a small fraction of AWHONN instructors nationally &mdash; and has delivered these courses through the Houston Area Collaborative Perinatal Program for nearly three decades.
+          </p>
+          <p>
+            Her current speaking work centers on three intertwined concerns: the clinical competence of perinatal nurses, the health of African American women, and the culture of nursing itself. She has delivered invited lectures at AWHONN national and state conferences, the National Black Nurses Association, the National Missionary Baptist Convention, the American Heart Association&rsquo;s Go Red campaign, and more than a hundred hospital, church, and university programs across Texas and beyond.
+          </p>
+          <p>
+            Every program she delivers is built around a single standard: nurses leave with skills they can apply on their next shift. That results-driven approach — grounded in evidence, tied to learning objectives, and documented for CEU compliance — is why organizations invite her back.
+          </p>
+
+          <blockquote class="about__pull">
+            &ldquo;Nursing education has to travel with the nurse &mdash; to the unit, to the community, and to the moments when vigilance makes the difference.&rdquo;
+          </blockquote>
+        </div>
+
+        <aside class="creds">
+          <div class="creds__title">Credentials</div>
+          <ul class="creds__list">
+            <li><span class="creds__name">PhD, Nursing</span><span class="creds__meta">Texas Woman&rsquo;s Univ., 2009</span></li>
+            <li><span class="creds__name">MSN, Nursing</span><span class="creds__meta">Texas Woman&rsquo;s Univ., 1992</span></li>
+            <li><span class="creds__name">BSN, Nursing</span><span class="creds__meta">Texas Woman&rsquo;s Univ., 1980</span></li>
+            <li><span class="creds__name">RNC &mdash; Inpatient Obstetrics</span><span class="creds__meta">NCC</span></li>
+            <li><span class="creds__name">AWHONN Instructor Trainer</span><span class="creds__meta">Intermediate &amp; Advanced FM</span></li>
+            <li><span class="creds__name">Advanced OB Life Support</span><span class="creds__meta">ALSO</span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__num">45<sup>+</sup></div>
+          <div class="stat__label">years in perinatal and women&rsquo;s health nursing</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">100<sup>+</sup></div>
+          <div class="stat__label">trainings, lectures, and conference podiums delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">30<sup>+</sup></div>
+          <div class="stat__label">years as an AWHONN-credentialed fetal monitoring instructor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOPICS ============ -->
+  <section class="section section--alt" id="topics">
+    <div class="wrap">
+      <div class="section__marker">02 &nbsp;&middot;&nbsp; Training Topics</div>
+      <h2 class="section__title">Six signature programs, organized around the CEU categories hospitals need to meet.</h2>
+      <p class="section__lead">Every program is available as an in-service, half-day workshop, full-day intensive, keynote, or virtual session — each tied to measurable learning objectives and documented CEU contact hours. Results your nurses can use on their next shift; paperwork your compliance team can file the same week.</p>
+
+      <div class="topics">
+
+        <!-- GROUP 1 -->
+        <div class="topic-group">
+          <div>
+            <div class="topic-group__label">Clinical OB Training</div>
+            <div class="topic-group__hint">Highest demand for labor &amp; delivery units and perinatal services.</div>
+          </div>
+          <div class="topic-cards">
+            <article class="topic">
+              <h3 class="topic__title">Intermediate &amp; Advanced Fetal Monitoring</h3>
+              <p class="topic__desc">AWHONN-credentialed courses taught by an AWHONN Instructor Trainer. Covers pattern interpretation, interventions, documentation standards, and case-based practice for labor and delivery nurses.</p>
+              <div class="topic__meta">
+                <span class="tag">AWHONN credentialed</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">2-day course available</span>
+              </div>
+            </article>
+            <article class="topic">
+              <h3 class="topic__title">High-Risk Obstetrics &amp; OB Emergencies</h3>
+              <p class="topic__desc">Bleeding disorders in pregnancy, shoulder dystocia, hypertensive crises, and failure-to-rescue. Case-driven simulation available for staff development days and nursing residency programs.</p>
+              <div class="topic__meta">
+                <span class="tag">Clinical</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">Simulation available</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- GROUP 2 -->
+        <div class="topic-group">
+          <div>
+            <div class="topic-group__label">Health Equity &amp; Maternal Outcomes</div>
+            <div class="topic-group__hint">Addresses the fastest-growing CEU requirement category.</div>
+          </div>
+          <div class="topic-cards">
+            <article class="topic">
+              <h3 class="topic__title">Implicit Bias &amp; African American Maternal Health</h3>
+              <p class="topic__desc">Grounded in Dr. Johnson&rsquo;s published work with Dr. B. Braxter on the impact of implicit bias on healthcare outcomes for African American women. Presented previously at the NBNA national conference.</p>
+              <div class="topic__meta">
+                <span class="tag">Health equity</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">Based on published research</span>
+              </div>
+            </article>
+            <article class="topic">
+              <h3 class="topic__title">Pregnancy Loss, Grief &amp; Bereavement Care</h3>
+              <p class="topic__desc">Drawn from Dr. Johnson&rsquo;s JOGNN-published dissertation research. Practical bereavement intervention protocols for early pregnancy loss, including communication frameworks for clinical staff and pastoral collaborators.</p>
+              <div class="topic__meta">
+                <span class="tag">Clinical</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">JOGNN-published research</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- GROUP 3 -->
+        <div class="topic-group">
+          <div>
+            <div class="topic-group__label">Nursing Excellence</div>
+            <div class="topic-group__hint">Ideal for Nurses Week programming and staff development days.</div>
+          </div>
+          <div class="topic-cards">
+            <article class="topic">
+              <h3 class="topic__title">Vigilance, Civility &amp; Leadership at the Bedside</h3>
+              <p class="topic__desc">A frequent Nurses Week keynote. Connects the clinical concept of vigilance to workplace culture, civility, and the core values that sustain nursing practice across a career.</p>
+              <div class="topic__meta">
+                <span class="tag">Leadership</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">Nurses Week keynote</span>
+              </div>
+            </article>
+            <article class="topic">
+              <h3 class="topic__title">Health &amp; Humor: Stress, Burnout &amp; Resilience</h3>
+              <p class="topic__desc">A signature talk refined over a decade of invitations. Explores the evidence base for humor as a clinical resilience tool and gives staff practical strategies for the demands of perinatal and critical-care work.</p>
+              <div class="topic__meta">
+                <span class="tag">Wellbeing</span>
+                <span class="tag tag--ceu">CEU hours: <span class="placeholder">[Dr. Johnson to confirm]</span></span>
+                <span class="tag tag--muted">Signature talk</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGAGEMENTS ============ -->
+  <section class="section" id="engagements">
+    <div class="wrap">
+      <div class="section__marker">03 &nbsp;&middot;&nbsp; Recent Engagements</div>
+      <h2 class="section__title">A selected history of invited talks and training programs.</h2>
+      <p class="section__lead">Drawn from more than one hundred engagements since 2013. Full list available on request.</p>
+
+      <div class="engagements">
+        <div class="engagement">
+          <div class="engagement__date">Sept 2025</div>
+          <div class="engagement__title">Know Your Numbers &mdash; NMBCA Annual Meeting</div>
+          <div class="engagement__host">National Missionary Baptist Convention of America &middot; Los Angeles, CA</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">June 2025</div>
+          <div class="engagement__title">NMBCA Spring Conference</div>
+          <div class="engagement__host">National Missionary Baptist Convention &middot; Dallas, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">Mar 2025</div>
+          <div class="engagement__title">Women&rsquo;s Healthy Heart</div>
+          <div class="engagement__host">American Heart Association &middot; Houston, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">Oct 2023</div>
+          <div class="engagement__title">AWHONN Instructor Course</div>
+          <div class="engagement__host">HACPP at Texas Woman&rsquo;s University &middot; Houston, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">May 2023</div>
+          <div class="engagement__title">State of Health of the African American Woman</div>
+          <div class="engagement__host">National Missionary Baptist Convention &middot; Dallas, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">Sept 2022</div>
+          <div class="engagement__title">AWHONN Advanced Fetal Monitoring</div>
+          <div class="engagement__host">HACPP at Ben Taub General Hospital &middot; Houston, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">July 2022</div>
+          <div class="engagement__title">Diversity in Healthcare</div>
+          <div class="engagement__host">National Black Nurses Association &middot; Dallas, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">April 2021</div>
+          <div class="engagement__title">The Impact of Implicit Bias on African American Women&rsquo;s Health</div>
+          <div class="engagement__host">National Black Nurses Association &middot; New Orleans, LA</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">June 2019</div>
+          <div class="engagement__title">EFM Hourly Rounding &mdash; Poster Presentation</div>
+          <div class="engagement__host">AWHONN 50th National Convention &middot; Atlanta, GA</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">Nov 2017</div>
+          <div class="engagement__title">Vigilance in School Nursing</div>
+          <div class="engagement__host">Texas School Nurses Association &middot; The Woodlands, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">May 2017</div>
+          <div class="engagement__title">Antepartum High-Risk Assessment</div>
+          <div class="engagement__host">AWHONN Texas State Conference &middot; San Marcos, TX</div>
+        </div>
+        <div class="engagement">
+          <div class="engagement__date">May 2015</div>
+          <div class="engagement__title">Leadership: If You Want to Stay Up, You Have to Keep Up</div>
+          <div class="engagement__host">Texas AWHONN State Conference &middot; Conroe, TX</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section--alt" id="testimonials">
+    <div class="wrap">
+      <div class="section__marker">04 &nbsp;&middot;&nbsp; What Hosts Say</div>
+      <h2 class="section__title">In the words of nurse leaders, program chairs, and conference organizers.</h2>
+      <p class="section__lead"><span class="placeholder">[PLACEHOLDER: Dr. Johnson to provide 3&ndash;5 testimonials from past hosts. Ideally with full name, title, organization, and permission to publish.]</span></p>
+
+      <div class="testimonials">
+        <figure class="quote">
+          <blockquote class="quote__body">
+            <span class="placeholder">[PLACEHOLDER: Testimonial from a hospital CNO, staff development director, or nurse educator who booked Dr. Johnson for a fetal monitoring course or clinical in-service.]</span>
+          </blockquote>
+          <figcaption class="quote__attr">
+            <span class="quote__name placeholder">[Name, credentials]</span>
+            <span class="placeholder">[Title &middot; Organization]</span>
+          </figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote class="quote__body">
+            <span class="placeholder">[PLACEHOLDER: Testimonial from an AWHONN chapter or conference organizer about a state or national conference appearance.]</span>
+          </blockquote>
+          <figcaption class="quote__attr">
+            <span class="quote__name placeholder">[Name, credentials]</span>
+            <span class="placeholder">[Title &middot; Organization]</span>
+          </figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote class="quote__body">
+            <span class="placeholder">[PLACEHOLDER: Testimonial from a nursing school program director or Nurses Week planning committee.]</span>
+          </blockquote>
+          <figcaption class="quote__attr">
+            <span class="quote__name placeholder">[Name, credentials]</span>
+            <span class="placeholder">[Title &middot; Organization]</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOGISTICS ============ -->
+  <section class="section" id="logistics">
+    <div class="wrap">
+      <div class="section__marker">05 &nbsp;&middot;&nbsp; Logistics</div>
+      <h2 class="section__title">Practical details for program planners.</h2>
+
+      <div class="logistics">
+        <div class="logistic">
+          <div class="logistic__label">Formats</div>
+          <div class="logistic__val">In-service &middot; Half-day workshop &middot; Full-day intensive &middot; Keynote &middot; Virtual</div>
+        </div>
+        <div class="logistic">
+          <div class="logistic__label">CEU Contact Hours</div>
+          <div class="logistic__val placeholder">[PLACEHOLDER: Dr. Johnson to confirm awarding body and typical hour ranges per program]</div>
+        </div>
+        <div class="logistic">
+          <div class="logistic__label">Travel</div>
+          <div class="logistic__val placeholder">[PLACEHOLDER: Houston-based; regional and national travel policy to be confirmed]</div>
+        </div>
+        <div class="logistic">
+          <div class="logistic__label">Honorarium</div>
+          <div class="logistic__val placeholder">[PLACEHOLDER: Dr. Johnson to confirm honorarium structure or quote-on-request policy]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING ============ -->
+  <section class="section booking" id="book">
+    <div class="wrap booking__inner">
+      <div class="booking__intro">
+        <div class="section__marker">06 &nbsp;&middot;&nbsp; Request Training</div>
+        <h2 class="section__title">Bring Dr. Johnson to your hospital, school, or conference.</h2>
+        <p>
+          Share a few details about your audience and event. Dr. Johnson will reply personally with availability, program options, and CEU documentation.
+        </p>
+        <ol class="booking__steps">
+          <li>Submit the form with your program details.</li>
+          <li>Receive a response from Dr. Johnson within <span class="placeholder">[PLACEHOLDER: response window]</span> business days.</li>
+          <li>Confirm topic, format, and contract.</li>
+          <li>Receive program materials and CEU documentation ahead of the event.</li>
+        </ol>
+      </div>
+
+      <form class="form" id="booking-form" name="booking" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="booking" />
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label for="org">Organization <span class="required">*</span></label>
+            <input id="org" name="organization" type="text" required />
+          </div>
+          <div class="field">
+            <label for="contact">Contact name <span class="required">*</span></label>
+            <input id="contact" name="contact" type="text" required />
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label for="email">Email <span class="required">*</span></label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label for="date">Event date(s)</label>
+            <input id="date" name="date" type="text" placeholder="e.g. Oct 14&ndash;15, 2026 or flexible" />
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" name="location" type="text" placeholder="City, state &mdash; or &ldquo;virtual&rdquo;" />
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label for="audience">Audience <span class="required">*</span></label>
+            <select id="audience" name="audience" required>
+              <option value="">Select audience</option>
+              <option>Registered nurses (hospital staff)</option>
+              <option>Nursing students</option>
+              <option>Mixed clinical staff</option>
+              <option>Nurse educators / staff development</option>
+              <option>Conference attendees</option>
+              <option>Community / faith-based audience</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="size">Audience size</label>
+            <input id="size" name="size" type="text" placeholder="e.g. 25, 150, 400" />
+          </div>
+        </div>
+        <div class="form__row form__row--2">
+          <div class="field">
+            <label for="topic">Topic interest <span class="required">*</span></label>
+            <select id="topic" name="topic" required>
+              <option value="">Select a topic</option>
+              <option>Intermediate &amp; Advanced Fetal Monitoring</option>
+              <option>High-Risk Obstetrics &amp; OB Emergencies</option>
+              <option>Implicit Bias &amp; African American Maternal Health</option>
+              <option>Pregnancy Loss, Grief &amp; Bereavement Care</option>
+              <option>Vigilance, Civility &amp; Leadership at the Bedside</option>
+              <option>Health &amp; Humor: Stress, Burnout &amp; Resilience</option>
+              <option>Custom / discuss with Dr. Johnson</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="format">Preferred format</label>
+            <select id="format" name="format">
+              <option value="">Select format</option>
+              <option>In-service (30&ndash;60 min)</option>
+              <option>Half-day workshop</option>
+              <option>Full-day intensive</option>
+              <option>Keynote</option>
+              <option>Virtual session</option>
+              <option>Multi-day course</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="ceu">CEU requirements &amp; notes</label>
+          <textarea id="ceu" name="ceu" placeholder="Required CEU hours, approving body, documentation deadlines, honorarium range, or anything else helpful."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form__submit">Send Request</button>
+        <p class="form__note">Your information is used only to respond to your inquiry.</p>
+      </form>
+
+      <div id="form-success" style="display:none;" class="form form--success">
+        <div style="text-align:center; padding: 2rem 0;">
+          <div style="font-size:2.5rem; margin-bottom:1rem;">&#10003;</div>
+          <h3 style="font-family:var(--serif); color:var(--lavender-700); margin-bottom:0.75rem;">Request received.</h3>
+          <p style="color:var(--body); max-width:38ch; margin:0 auto;">Dr. Johnson will review your request and reply personally with availability, program options, and CEU documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div>
+          <div class="footer__brand">Olinda Johnson<span>, PhD</span></div>
+          <p class="footer__bio">
+            RNC &middot; CNS &middot; APN &middot; AWHONN Instructor Trainer. Rooted in Houston&rsquo;s Texas Medical Center. Delivering CEU-qualifying trainings for hospitals, universities, and nursing programs nationwide.
+          </p>
+        </div>
+        <div>
+          <div class="footer__heading">Navigate</div>
+          <ul class="footer__list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#topics">Topics</a></li>
+            <li><a href="#engagements">Engagements</a></li>
+            <li><a href="#logistics">Logistics</a></li>
+            <li><a href="#book">Request Training</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Contact</div>
+          <ul class="footer__list">
+            <li><span class="placeholder">[PLACEHOLDER: email]</span></li>
+            <li><span class="placeholder">[PLACEHOLDER: phone, if desired]</span></li>
+            <li>Houston, Texas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bot">
+        <div>&copy; <span id="year"></span> Olinda Johnson, PhD. All rights reserved.</div>
+        <div>OlindaJohnsonSpeaks.com</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      var form = document.getElementById('booking-form');
+      var success = document.getElementById('form-success');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        }).then(function () {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        }).catch(function () {
+          alert('Something went wrong. Please try again or email Dr. Johnson directly.');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
