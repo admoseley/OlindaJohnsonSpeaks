@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Business Card — Dr. Olinda Johnson, PhD</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ---------- Design tokens (mirrored from index.html) ---------- */
+    :root {
+      --violet-900: #1E1438;
+      --violet-700: #3F3185;
+      --violet-600: #5E45A8;
+      --violet-500: #7356B8;
+      --violet-400: #9580CC;
+      --violet-300: #BEB0E0;
+      --violet-200: #D8D0EF;
+      --violet-100: #EBE6F8;
+      --violet-050: #F5F2FB;
+
+      --silver-600: #8E929E;
+      --silver-500: #A4A8B4;
+      --silver-400: #BCC0CC;
+      --silver-200: #D4D8E2;
+      --silver-100: #E5E8EF;
+      --silver-050: #F3F4F8;
+
+      --ink:   #1E1A2C;
+      --body:  #3C3848;
+      --muted: #6A6678;
+
+      --cream: #FDFCFF;
+      --white: #FFFFFF;
+
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans:  "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--silver-050);
+      color: var(--body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
+
+    /* ---------- Preview chrome (screen only) ---------- */
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem) 5rem;
+    }
+    .page__eyebrow {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      color: var(--violet-500);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .page__eyebrow::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: var(--silver-400);
+    }
+    .page__title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 0 0 0.5rem;
+    }
+    .page__lead {
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin: 0 0 3rem;
+    }
+
+    .face-label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .face-label::before {
+      content: "";
+      width: 1.4rem;
+      height: 1px;
+      background: var(--silver-400);
+    }
+    .face-label__size {
+      margin-left: auto;
+      font-style: normal;
+      letter-spacing: 0.05em;
+      font-size: 0.7rem;
+      color: var(--silver-600);
+    }
+
+    .cards {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+    @media (min-width: 960px) {
+      .cards { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+    }
+
+    /* =========================================================
+       THE CARD
+       Trim:  3.5in × 2in (US standard)
+       Preview is rendered at 2× scale via larger inch + larger
+       baseline font-size; all internal sizing uses em so the
+       print and screen versions are geometrically identical.
+       ========================================================= */
+    .card {
+      /* print defaults */
+      --card-w: 3.5in;
+      --card-h: 2.0in;
+      --base: 7pt;          /* baseline font-size */
+      width: var(--card-w);
+      height: var(--card-h);
+      font-size: var(--base);
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.06in;   /* tiny corner radius — preview-only feel */
+      font-family: var(--sans);
+      color: var(--ink);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      box-shadow:
+        0 1px 0 var(--silver-200),
+        0 30px 60px -28px rgba(30, 20, 56, 0.28),
+        0 8px 18px -10px rgba(30, 20, 56, 0.12);
+    }
+    /* Screen preview: render the card at 2× actual size. */
+    @media screen {
+      .card {
+        --card-w: 7in;
+        --card-h: 4in;
+        --base: 14pt;
+      }
+    }
+
+    /* ---------- FRONT ---------- */
+    .card--front {
+      background:
+        radial-gradient(ellipse at 110% -20%, rgba(115, 86, 184, 0.10), transparent 55%),
+        radial-gradient(ellipse at -10% 120%, rgba(188, 192, 204, 0.18), transparent 55%),
+        var(--cream);
+      padding: 2.2em 2.6em;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      row-gap: 1.0em;
+    }
+
+    /* Dashed lavender + silver ring in lower-right — echoes the
+       portrait frame in the hero. Sized so the eyebrow at top
+       never collides with it. */
+    .card__ring,
+    .card__ring--inner {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .card__ring {
+      width: 11em;
+      height: 11em;
+      right: -5.5em;
+      bottom: -5.5em;
+      border: 1px dashed var(--violet-300);
+      opacity: 0.5;
+    }
+    .card__ring--inner {
+      width: 8.4em;
+      height: 8.4em;
+      right: -4.2em;
+      bottom: -4.2em;
+      border: 1px solid var(--silver-400);
+      opacity: 0.5;
+    }
+
+    .card__eyebrow {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.78em;
+      letter-spacing: 0.07em;
+      color: var(--violet-500);
+      display: flex;
+      align-items: center;
+      gap: 0.85em;
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+    .card__eyebrow::before {
+      content: "";
+      width: 2.4em;
+      height: 1px;
+      background: var(--silver-400);
+      flex: 0 0 auto;
+    }
+
+    .card__lockup {
+      align-self: center;
+      position: relative;
+      z-index: 1;
+    }
+    .card__name {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 2.5em;        /* hero of the card */
+      line-height: 1.0;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      margin: 0 0 0.30em;
+      white-space: nowrap;
+    }
+    .card__name-suffix {
+      color: var(--violet-600);
+      font-weight: 400;
+    }
+    .card__creds {
+      font-family: var(--sans);
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--violet-700);
+      margin: 0;
+    }
+    .card__creds .dot {
+      color: var(--violet-300);
+      margin: 0 0.45em;
+      font-weight: 400;
+    }
+
+    .card__footer {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: end;
+      column-gap: 1.4em;
+      row-gap: 0.55em;
+      padding-top: 0.9em;
+      border-top: 1px solid var(--silver-200);
+    }
+    .card__role {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.92em;
+      color: var(--body);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .card__site {
+      font-family: var(--sans);
+      font-size: 0.72em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ---------- BACK ---------- */
+    .card--back {
+      background:
+        radial-gradient(ellipse at 18% 22%, rgba(149, 128, 204, 0.30), transparent 55%),
+        radial-gradient(ellipse at 95% 110%, rgba(30, 20, 56, 0.45), transparent 55%),
+        linear-gradient(135deg, var(--violet-700) 0%, var(--violet-900) 100%);
+      color: var(--violet-100);
+      padding: 2.0em 2.4em;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      column-gap: 1.6em;
+      row-gap: 0.9em;
+      align-items: start;
+    }
+
+    /* Monogram — sits top-left, with the dashed + solid rings
+       around it (same motif as the hero portrait). Smaller and
+       more refined than v1; doesn't eat the whole left side. */
+    .card__mark {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      align-self: center;
+      width: 5.4em;
+      height: 5.4em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card__mark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px dashed rgba(213, 208, 239, 0.45);
+    }
+    .card__mark::after {
+      content: "";
+      position: absolute;
+      inset: 0.55em;
+      border-radius: 50%;
+      border: 1px solid rgba(213, 208, 239, 0.30);
+    }
+    .card__mark-text {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 2.6em;
+      letter-spacing: -0.04em;
+      color: var(--violet-100);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card__back-eyebrow {
+      grid-column: 2;
+      grid-row: 1;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.78em;
+      letter-spacing: 0.10em;
+      color: var(--violet-300);
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      white-space: nowrap;
+    }
+    .card__back-eyebrow::before {
+      content: "";
+      width: 1.8em;
+      height: 1px;
+      background: rgba(213, 208, 239, 0.45);
+      flex: 0 0 auto;
+    }
+
+    .card__contact {
+      grid-column: 2;
+      grid-row: 2;
+      align-self: center;
+      margin: 0;
+    }
+    .card__contact-line {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.05em;
+      color: var(--white);
+      line-height: 1.45;
+      margin: 0;
+      letter-spacing: 0.005em;
+    }
+    .card__contact-line + .card__contact-line {
+      margin-top: 0.18em;
+    }
+    .card__contact-line.is-placeholder {
+      color: var(--violet-200);
+      font-style: italic;
+    }
+
+    .card__back-foot {
+      grid-column: 2;
+      grid-row: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.85em;
+      padding-top: 0.7em;
+      border-top: 1px solid rgba(213, 208, 239, 0.20);
+    }
+    .card__back-foot-tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.72em;
+      color: var(--violet-300);
+      letter-spacing: 0.08em;
+    }
+    .card__back-url {
+      font-family: var(--sans);
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    /* ---------- Spec sheet beneath cards ---------- */
+    .spec {
+      margin-top: 4rem;
+      background: var(--white);
+      border: 1px solid var(--silver-200);
+      border-radius: 6px;
+      padding: 1.85rem 1.85rem 1.5rem;
+    }
+    .spec__title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--ink);
+      margin: 0 0 1rem;
+    }
+    .spec__grid {
+      display: grid;
+      gap: 0.85rem 2rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .spec__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .spec__row {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--silver-100);
+    }
+    .spec__row:last-child { border-bottom: none; }
+    .spec__label {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--violet-500);
+      text-transform: uppercase;
+      flex: 0 0 7rem;
+    }
+    .spec__val {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--body);
+    }
+    .spec__note {
+      margin-top: 1.4rem;
+      padding: 0.9rem 1.1rem;
+      background: var(--violet-050);
+      border-left: 2px solid var(--violet-300);
+      color: var(--violet-700);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      border-radius: 2px;
+    }
+
+    /* ---------- Print: actual size, both faces on one Letter sheet ---------- */
+    @media print {
+      @page { size: letter; margin: 0.6in; }
+      body { background: var(--white); }
+      .page__eyebrow, .page__title, .page__lead, .face-label, .spec { display: none; }
+      .page { padding: 0; max-width: none; }
+      .cards { display: block; }
+      .card {
+        --card-w: 3.5in;
+        --card-h: 2.0in;
+        --base: 7pt;
+        margin: 0 auto 0.4in;
+        box-shadow: none;
+        border-radius: 0;
+        outline: 1px dashed var(--silver-400);
+        outline-offset: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="page__eyebrow">Brand Asset &middot; v2</div>
+    <h1 class="page__title">Business Card</h1>
+    <p class="page__lead">3.5&Prime; &times; 2&Prime; trim, shown here at 2&times; for readability. The front leads with Dr.&nbsp;Johnson&rsquo;s name and the AWHONN credential; the back carries the OJ monogram on deep violet with contact details. All typography is Fraunces + DM Sans on the same lavender / cream / silver palette as the website.</p>
+
+    <div class="cards">
+
+      <!-- ============ FRONT ============ -->
+      <div>
+        <div class="face-label">Front<span class="face-label__size">3.5&Prime; &times; 2&Prime;</span></div>
+        <div class="card card--front" aria-label="Business card front">
+          <div class="card__ring" aria-hidden="true"></div>
+          <div class="card__ring--inner" aria-hidden="true"></div>
+
+          <div class="card__eyebrow">AWHONN Instructor Trainer &middot; Since 1997</div>
+
+          <div class="card__lockup">
+            <h2 class="card__name">Olinda Johnson<span class="card__name-suffix">, PhD</span></h2>
+            <div class="card__creds">RNC<span class="dot">&middot;</span>CNS<span class="dot">&middot;</span>APN</div>
+          </div>
+
+          <div class="card__footer">
+            <div class="card__role">Nurse Educator &amp; CEU Speaker</div>
+            <div class="card__site">OlindaJohnsonSpeaks.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ BACK ============ -->
+      <div>
+        <div class="face-label">Back<span class="face-label__size">3.5&Prime; &times; 2&Prime;</span></div>
+        <div class="card card--back" aria-label="Business card back">
+          <div class="card__mark" aria-hidden="true">
+            <span class="card__mark-text">OJ</span>
+          </div>
+
+          <div class="card__back-eyebrow">Request a training</div>
+
+          <div class="card__contact">
+            <p class="card__contact-line">Booking@OlindaJohnsonSpeaks.com</p>
+            <p class="card__contact-line">712&middot;443&middot;3491</p>
+            <p class="card__contact-line">Houston, Texas</p>
+          </div>
+
+          <div class="card__back-foot">
+            <span class="card__back-foot-tag">Texas Medical Center</span>
+            <span class="card__back-url">OlindaJohnsonSpeaks.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="spec" aria-label="Print specifications">
+      <h3 class="spec__title">Print specifications</h3>
+      <div class="spec__grid">
+        <div class="spec__row"><div class="spec__label">Trim</div><div class="spec__val">3.5&Prime; &times; 2.0&Prime; (US standard)</div></div>
+        <div class="spec__row"><div class="spec__label">Bleed</div><div class="spec__val">Add 0.125&Prime; on all sides &rarr; 3.75&Prime; &times; 2.25&Prime;</div></div>
+        <div class="spec__row"><div class="spec__label">Safe area</div><div class="spec__val">Keep text 0.125&Prime; inside trim</div></div>
+        <div class="spec__row"><div class="spec__label">Resolution</div><div class="spec__val">300 DPI minimum at final size</div></div>
+        <div class="spec__row"><div class="spec__label">Stock</div><div class="spec__val">Recommend 16 pt uncoated or soft-touch matte</div></div>
+        <div class="spec__row"><div class="spec__label">Finish</div><div class="spec__val">Optional spot UV on the OJ monogram</div></div>
+        <div class="spec__row"><div class="spec__label">Corners</div><div class="spec__val">Square (rounded edges on screen are preview-only)</div></div>
+        <div class="spec__row"><div class="spec__label">Fonts</div><div class="spec__val">Fraunces (display + italic eyebrows), DM Sans (caps + footer labels)</div></div>
+        <div class="spec__row"><div class="spec__label">Front colors</div><div class="spec__val">Cream #FDFCFF, ink #1E1A2C, violet-600 #5E45A8, violet-700 #3F3185, silver-200 #D4D8E2</div></div>
+        <div class="spec__row"><div class="spec__label">Back colors</div><div class="spec__val">Violet-700 #3F3185 &rarr; violet-900 #1E1438 gradient, violet-100 #EBE6F8</div></div>
+      </div>
+
+      <div class="spec__note">
+        Press-ready. Booking email and phone are confirmed and set. Print the page in any browser to lay both faces on a Letter sheet at actual size with a dashed trim guide.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

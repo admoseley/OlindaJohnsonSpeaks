@@ -1,144 +1,80 @@
-# OlindaJohnsonSpeaks.com — Project Instructions
+# CLAUDE.md
 
-This file is the handoff from an earlier planning and prototyping conversation.
-It contains everything Claude Code needs to finish and deploy the site.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ---
 
-## 1. Project at a glance
+## Project overview
 
-- **Client:** Dr. Olinda Johnson, PhD, RNC, CNS, APN
+Static one-page marketing site for **Dr. Olinda Johnson, PhD, RNC, CNS, APN** — a nurse educator who delivers CEU-qualifying trainings for hospitals, universities, and professional nursing organizations.
+
 - **Domain:** `OlindaJohnsonSpeaks.com`
-- **Type:** Static one-page marketing site
-- **Status:** First-draft HTML/CSS scaffold complete (`index.html`). Needs form backend, real content in placeholders, QA, and deployment.
-- **Primary CTA:** "Request Training" — drives every CTA on the page to the booking form.
+- **Primary CTA everywhere:** "Request Training" (not "Book Dr. Johnson" — the audience searches for trainings)
+- **Single deliverable:** `index.html` + sibling assets. No build step, no framework, no multi-page routing.
 
-## 2. Who this site is for
+## Local preview
 
-The site targets **event and training coordinators who book nursing continuing
-education**, specifically:
-
-- County and private hospitals (staff development / nursing education departments)
-- Universities and nursing schools
-- Professional nursing organizations (AWHONN chapters, NBNA, Sigma Theta Tau, etc.)
-
-These audiences book CEU-bearing trainings so their nurses stay current on
-annual CEU requirements. **The site sells CEU-qualifying professional
-education, not general public speaking.** Earlier drafts leaned toward a broad
-speaker site — that direction is deprecated.
-
-## 3. The positioning to preserve
-
-Dr. Johnson's single strongest differentiator for this audience is that she is
-an **AWHONN Instructor Trainer for both Intermediate and Advanced Fetal
-Monitoring since 1997**. That credential is rare — most AWHONN instructors are
-not instructor trainers — and it is exactly what nurse educators search for
-when booking fetal monitoring courses. Keep this credential prominent in the
-hero and in topic #1.
-
-Her other strong signals, to surface consistently:
-
-- 45+ years in perinatal and women's health nursing
-- PhD from Texas Woman's University, 2009
-- Clinical Educator at Houston Methodist
-- Published in *JOGNN* (runner-up for 2016 Best of JOGNN Writing Award)
-- Published work on implicit bias in healthcare for African American women
-- Four lanes of credibility: AWHONN/professional nursing, AHA/Go Red,
-  academic (TWU), and faith/community (NMBCA, NBNA)
-
-## 4. Tech stack and constraints
-
-- **Plain static HTML/CSS** — no framework, no build step, no JavaScript
-  beyond the tiny inline helpers already in `index.html`.
-- **Single HTML file** plus the headshot as a sibling asset. The site is a
-  one-pager; there is no multi-page routing.
-- **Fonts:** Google Fonts — Fraunces (display serif) + DM Sans (body sans).
-  Already linked in the `<head>`.
-- **No analytics, no tracking pixels, no cookie banner** — the site does not
-  need consent machinery because it sets no cookies.
-- **Target deploy:** any static host. Good options: Netlify, Cloudflare Pages,
-  GitHub Pages, Vercel. Pick whichever has the simplest form-handler path
-  (see §8).
-- **Accessibility baseline:** semantic HTML already in place. Keep it.
-  Alt text on images, labeled form fields, sufficient color contrast.
-
-Do not introduce React, Next.js, Tailwind, a component library, a CSS
-framework, or a build pipeline. If a future need pushes in that direction,
-flag it and wait for confirmation — the client wants a static page.
-
-## 5. Design system (already in `index.html`)
-
-All tokens are defined as CSS custom properties at the top of the stylesheet.
-Reuse them — do not introduce new colors, new fonts, or a new spacing scale
-without a reason.
-
-### Palette
-
-```
---lavender-900: #2B2140   /* deep ink / footer background */
---lavender-700: #4A3E70   /* primary buttons, strong accents */
---lavender-500: #6D5E95   /* standard lavender accents, tags */
---lavender-300: #A89BC7   /* soft decorative accents */
---lavender-100: #EDE7F6   /* tag backgrounds, focus ring */
---lavender-050: #F7F4FB   /* alternating section backgrounds */
-
---silver-500: #9DA2AE     /* footer bottom text */
---silver-400: #B8BCC8     /* rules, borders in hero */
---silver-200: #D6D9E0     /* standard card borders */
---silver-100: #E5E7EC     /* light dividers */
-
---ink:   #221E2E          /* headings */
---body:  #3E3A4A          /* body text */
---muted: #6B6878          /* secondary text */
-
---cream: #FDFCFF          /* page background */
---white: #FFFFFF          /* card backgrounds */
+```bash
+python3 -m http.server 8734
+# then open http://localhost:8734
 ```
 
-### Typography
+Port 8734 is configured in `.claude/launch.json`.
 
-- **Display serif:** Fraunces (variable, 300–700). Used for headings,
-  the hero name, stat numerals, section markers, the pull quote, and the
-  testimonial body. Italic Fraunces is used for eyebrows and section
-  markers to carry the editorial feel — do not replace with roman.
-- **Body sans:** DM Sans (400–700). Used for body copy, buttons, nav,
-  form fields, tags.
+## File inventory
 
-### Design intent (so the look survives edits)
+```
+index.html                        ← the entire site
+favicon.svg                       ← OJ monogram in lavender
+dr-johnson-headshot.jpg           ← hero image (456×548 JPEG), referenced by relative path
+o-johnson.jpg                     ← alternate headshot (not currently used in index.html)
+Deploy/                           ← snapshot pushed to host; keep in sync with root index.html
+DrOlindaJohnson/                  ← original client-provided assets (one sheet PDF/DOCX, compensation framework)
+DrOlindaJohnson 2/                ← updated versions of same assets (prefer these)
+CV OJOHNSON 2025.docx             ← full CV for bio/credentials reference
+drjohnson.zip / DrOlindaJohnson.zip / files.zip  ← delivery archives; do not deploy
+```
 
-- **Editorial, not promotional.** Think academic journal redesigned for the
-  web — numbered section markers (`01 · About`), thin silver hairlines,
-  generous vertical rhythm, pull quote with a vertical rule.
-- **Lavender is an accent, not a wash.** Dominant surfaces are cream and
-  white. Lavender appears in headings, buttons, tags, and the alternating
-  `section--alt` background. Resist the pull to lavender gradients or
-  lavender-tinted bodies of text.
-- **Silver is a structural color**, not a fill. It's for rules, borders,
-  and dividers. Silver fills read as washed-out gray; avoid them.
-- **Animation is minimal and front-loaded.** The hero stagger-fades in on
-  load; topic cards lift on hover. That is the complete motion budget.
-  Do not add scroll-triggered reveals, parallax, carousels, or modals.
+## Tech constraints — do not violate
 
-## 6. Sitemap and content outline
+- Plain HTML/CSS only. No React, Next.js, Tailwind, component libraries, or build pipelines.
+- No JavaScript beyond the small inline helpers already in `index.html`.
+- No analytics, tracking pixels, or cookie banner.
+- Keep `index.html` and `dr-johnson-headshot.jpg` as siblings (relative path `src="dr-johnson-headshot.jpg"`).
 
-A single long page, nine sections in order:
+## Design system
 
-| # | Section | Purpose |
+All tokens are CSS custom properties in `index.html`. Reuse them; do not add new colors, fonts, or spacing scales without a reason.
+
+**Palette intent:**
+- Lavender is an **accent**, not a wash. Cream and white dominate surfaces.
+- Silver is **structural** (rules, borders, dividers) — never a fill.
+- `--lavender-700` for primary buttons; `--lavender-500` for accents/tags; `--lavender-050` for `section--alt` backgrounds.
+
+**Typography:**
+- `Fraunces` (serif) — headings, stat numerals, section markers, pull quote, testimonials. Italic Fraunces for eyebrows and section markers. Do not replace with roman.
+- `DM Sans` (sans) — body copy, buttons, nav, form fields, tags.
+
+**Motion budget (complete — do not add to):** hero stagger-fade on load + topic card lift on hover.
+
+## Page structure
+
+Nine sections in order, all anchored in the single HTML file:
+
+| Anchor | Section | Notes |
 |---|---|---|
-| — | **Nav** | Sticky, blurred background, brand + 4 anchor links + pill CTA |
-| — | **Hero** | Name, credentials, tagline, 2 CTAs, circular headshot |
-| 0 | **Trusted by** | Text strip of 9 orgs between hero and §01 |
-| 01 | **About** | Narrative bio + credentials card + 3-stat row |
-| 02 | **Training Topics** | 6 topics in 3 groups of 2 |
-| 03 | **Recent Engagements** | 12 curated past appearances |
-| 04 | **What Hosts Say** | 3 testimonial cards (placeholder) |
-| 05 | **Logistics** | Formats, CEU hours, travel, honorarium |
-| 06 | **Request Training** | Booking form |
-| — | **Footer** | Brand, nav, contact, copyright |
+| _(none)_ | Nav | Sticky, blur backdrop, 4 anchor links + pill CTA |
+| _(none)_ | Hero | Circular headshot with silver ring + dashed lavender outer ring |
+| `#trusted` | Trusted by | Text strip only — no logos (permission issues) |
+| `#about` | §01 About | Bio + credentials card + 3-stat row + pull quote |
+| `#topics` | §02 Training Topics | 6 topics in 3 groups of 2 |
+| `#engagements` | §03 Recent Engagements | 12 past appearances |
+| `#testimonials` | §04 What Hosts Say | 3 testimonial cards |
+| `#logistics` | §05 Logistics | Formats, CEU hours, travel, honorarium |
+| `#booking` | §06 Request Training | Booking form |
+| _(none)_ | Footer | Brand, nav, contact, copyright |
 
-### The six training topics (memorize these, they appear in 3 places)
-
-Grouped for the audience's mental model of CEU categories:
+## The six training topics — must stay in sync between §02 and §06 dropdown
 
 **Clinical OB Training**
 1. Intermediate & Advanced Fetal Monitoring — AWHONN-credentialed
@@ -152,161 +88,68 @@ Grouped for the audience's mental model of CEU categories:
 5. Vigilance, Civility & Leadership at the Bedside
 6. Health & Humor: Stress, Burnout & Resilience
 
-These six appear in §02 as topic cards *and* in the §06 form's topic dropdown.
-If one changes, update both places.
+If a topic name changes, update **both** `index.html` locations.
 
-## 7. Placeholders — what Dr. Johnson still needs to provide
+## Positioning to preserve
 
-Every placeholder in `index.html` is wrapped in `<span class="placeholder">`
-and contains literal text `[PLACEHOLDER: ...]`. Grep for `placeholder` or
-`PLACEHOLDER` to find them all. The full list:
+Dr. Johnson's single strongest differentiator: **AWHONN Instructor Trainer for Intermediate and Advanced Fetal Monitoring since 1997.** Keep this prominent in the hero and in topic #1. Most AWHONN instructors are not instructor trainers — this is the credential nurse educators search for.
 
-1. **CEU contact hours per program** — six topics, each tagged
-   `CEU hours: [Dr. Johnson to confirm]`
-2. **CEU approving body** — AWHONN, TNA, ANCC, or other — goes in the
-   Logistics card
-3. **Travel policy** — Houston-local only? Regional? National? Virtual-only
-   tier? — Logistics card
-4. **Honorarium structure** — flat, tiered by audience type, or
-   "quote on request" — Logistics card
-5. **Response-time commitment** — e.g. "within 3 business days" — in the
-   booking intro copy
-6. **3–5 testimonials** with full name, title, organization, and permission
-   to publish — §04
-7. **Contact email** — footer
-8. **Optional contact phone** — footer
+Other signals to surface consistently:
+- 45+ years in perinatal and women's health nursing
+- PhD from Texas Woman's University, 2009
+- Clinical Educator at Houston Methodist
+- Published in *JOGNN* (runner-up for 2016 Best of JOGNN Writing Award)
 
-When she sends these over, a global find-and-replace on the `[PLACEHOLDER: ...]`
-strings is the whole job. The highlighted styling (`.placeholder` class) can
-be removed along with the text — it exists only to make incomplete spots
-visible during the draft phase.
+## Booking form backend (not yet wired)
 
-## 8. The booking form — backend integration
+The form currently calls `event.preventDefault()` and shows an alert. Before launch, pick one:
 
-The form in §06 currently does `event.preventDefault()` and shows an alert.
-It needs a real handler before launch. Three recommended paths:
+**Option A — Netlify Forms** (free if hosting on Netlify):
+```html
+<form class="form" name="booking" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="booking" />
+```
 
-### Option A — Formspree (simplest, paid after free tier)
-
+**Option B — Formspree** (simplest otherwise):
 ```html
 <form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 ```
 
-Remove the inline `onsubmit` handler. Formspree emails each submission.
+Remove the `onsubmit` handler when switching to a real backend. Add a success state (redirect or inline confirmation) — do not leave the user on a blank form after submit.
 
-### Option B — Netlify Forms (free, requires Netlify hosting)
+## Remaining placeholders — Dr. Johnson to provide
 
-```html
-<form class="form" name="booking" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="booking" />
-  <!-- existing fields -->
-</form>
-```
+Grep `index.html` for `placeholder` (CSS class) or `[` to find any remaining gaps. Outstanding items:
 
-### Option C — Basin (simple, free tier)
+1. CEU contact hours per topic (6 topics)
+2. CEU approving body (AWHONN, TNA, ANCC, or other)
+3. Travel policy (local/regional/national/virtual tiers)
+4. Honorarium structure
+5. Response-time commitment for booking inquiries
+6. 3–5 testimonials with full name, title, org, and publish permission
+7. Contact email (and optional phone) in the footer
 
-Same as Formspree — change the `action` URL.
+Note: The domain is already hardcoded as `www.olindajohnsonspeaks.com` in the OG/Twitter meta tags — the apex-vs-www question is de facto answered.
 
-**Pick one based on the chosen host.** If the host is Netlify, use Option B
-for zero extra config. Otherwise Formspree or Basin are equivalent.
+When content arrives, find-and-replace the placeholder text and remove the `.placeholder` highlight class from that element.
 
-Whichever is chosen, add a real success state — redirect to a thank-you
-anchor or swap the form for a confirmation message — rather than leaving
-the user on a blank form after submit.
+## Decisions already made — do not re-litigate without a reason
 
-## 9. Current file inventory
+- "Request Training" CTA (not "Book Dr. Johnson")
+- Text-only "Trusted by" strip (no org logos — permission friction, slower launch)
+- Fraunces + DM Sans type pairing — do not swap to Inter, Roboto, or similar
+- Editorial layout with numbered section markers (deliberate — reflects PhD credentials)
+- Circular headshot with silver ring + dashed lavender outer ring in the hero
+- Houston, Texas in the footer
+- Pull quote in §01 is paraphrased pending a direct quote from Dr. Johnson
 
-```
-/
-├── CLAUDE.md                     ← this file
-├── index.html                    ← the one-pager, complete scaffold
-└── dr-johnson-headshot.jpg       ← hero image, 456×548 JPEG
-```
+## QA checklist before launch
 
-`index.html` references the headshot with a relative path
-(`src="dr-johnson-headshot.jpg"`). Keep them as siblings.
-
-## 10. What to do next (ordered TODO)
-
-1. **Local preview.** Open `index.html` in a browser and confirm fonts load,
-   hero animation runs, mobile layout (≤ 600px) works, and no console
-   errors appear.
-2. **Form backend.** Pick a provider from §8 and wire the form. Add a
-   success state.
-3. **Favicon and meta.** The page has a `<title>` and `<meta name="description">`
-   but no favicon, no Open Graph tags, no Twitter card. Add:
-   - A favicon (derive a small mark from her initials in Fraunces, or use
-     a simple lavender monogram).
-   - OG tags with a 1200×630 preview image for when the link is shared.
-   - Structured data (`Person` schema.org JSON-LD) to help search visibility
-     for her name and credentials.
-4. **Deploy.** Push to the chosen host, point `OlindaJohnsonSpeaks.com` at it,
-   confirm HTTPS and the redirect from `www.` (or to `www.` — pick one).
-5. **Content pass #1.** Fill placeholders from §7 as Dr. Johnson sends
-   information. Remove the `.placeholder` highlight styling from any
-   element that now has real content.
-6. **Media kit.** Optional but recommended: a downloadable PDF with the
-   three bio lengths, headshot, credentials, and topic list. Link from
-   the footer or About section. A simple way is an HTML-to-PDF export
-   that mirrors the site's typography.
-7. **QA pass.**
-   - Run through Lighthouse (accessibility, SEO, performance).
-   - Tab through the form; confirm every field has a visible focus ring
-     and a label.
-   - Check color contrast on lavender-on-cream text (WCAG AA minimum).
-   - View on iPhone SE width (375px) and up.
-   - Confirm all six topic names match between §02 cards and §06 dropdown.
-
-## 11. Decisions already made (do not re-litigate without reason)
-
-Flag these if a reason to change comes up — but the default is to keep them:
-
-- **"Request Training" as the primary CTA** instead of "Book Dr. Johnson."
-  The target audience searches for trainings, not speakers.
-- **Text-based "Trusted by" strip, not logos.** Logos would need
-  permission-to-use from each org; text is cleaner on lavender/silver and
-  launches faster.
-- **Fraunces + DM Sans** as the type pairing. Fraunces gives academic
-  gravitas; DM Sans keeps body copy fast to read. Do not swap to Inter,
-  Roboto, Arial, or Space Grotesk — those choices would flatten the look.
-- **Editorial structure with numbered section markers** rather than a
-  typical speaker-site layout with big centered blocks. This is
-  deliberate — it leans into her PhD credentials.
-- **Circular headshot in the hero** with a silver ring and a dashed
-  lavender outer ring. Do not switch to a full-bleed hero image or a
-  rectangular portrait without a good reason.
-- **Houston, Texas** as the location in the footer. She is Houston-based.
-- **Pull quote in §01 is paraphrased in her voice** based on recurring
-  themes in her talks. Mark it for her review; she may want to swap in
-  a direct quote from one of her presentations.
-
-## 12. Known gaps and soft suggestions
-
-Things that would strengthen the site if she wants to invest:
-
-- **Video.** Even 60 seconds of phone-quality footage of her at a podium,
-  embedded in the hero or §02, is one of the strongest possible booking
-  tools. A professional sizzle reel is better but not essential.
-- **Case studies.** One or two short writeups of a hospital or conference
-  that booked her — what they asked for, what she delivered, the CEU
-  outcomes. These convert better than testimonials alone.
-- **A "press / in the news" strip** if any nursing publications have
-  covered her or interviewed her.
-- **Booking calendar.** If she wants to show availability rather than
-  handle every inquiry manually, Cal.com or Calendly embeds work well
-  with a static site.
-
----
-
-**Questions for Dr. Johnson to answer before launch**, consolidated:
-
-1. CEU hours and approving body per topic (6 topics)
-2. Travel policy
-3. Honorarium structure
-4. Response time commitment
-5. 3–5 testimonials with attribution
-6. Contact email (and optional phone)
-7. Preferred domain handling — `www.olindajohnsonspeaks.com` or
-   apex `olindajohnsonspeaks.com`
-8. Any direct quote from her talks she'd prefer in the §01 pull quote
-   slot, replacing the paraphrased placeholder
+- [ ] Lighthouse: accessibility, SEO, performance
+- [ ] Tab through the form — every field has a visible focus ring and associated label
+- [ ] WCAG AA color contrast on lavender-on-cream text
+- [ ] Mobile layout at 375px (iPhone SE) and up
+- [ ] All six topic names match between §02 cards and §06 dropdown
+- [ ] `og-image.jpg` (1200×630) exists at the root — currently referenced in OG tags but not yet created
+- [ ] Form backend wired and success state working
+- [ ] `Deploy/` folder in sync with root `index.html` before pushing to host
