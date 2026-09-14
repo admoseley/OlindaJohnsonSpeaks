@@ -148,6 +148,20 @@ az deployment group create --resource-group rg-shared-core --template-file azure
 
 (An Azure-managed sender domain `*.azurecomm.net` is available instantly for testing — the equivalent of Resend's `onboarding@resend.dev` sandbox.)
 
+**Gotcha:** `az communication list-key`'s connection string field is `primaryConnectionString`,
+not `connectionString` — the latter silently resolves to nothing with `-o tsv` (no error). Get it
+into a Static Web App setting in one step:
+
+```bash
+az staticwebapp appsettings set \
+  --name swa-<site> --resource-group rg-<site>-prod \
+  --setting-names "ACS_CONNECTION_STRING=$(az communication list-key --name acs-<site> --resource-group rg-<site>-prod --query primaryConnectionString -o tsv)"
+```
+
+Managed Functions (Free/Standard tier, no separate Function App resource) pick up new/changed app
+settings only at the next deploy — after setting or changing one, trigger a redeploy
+(`gh workflow run <workflow-name> --ref main`, or push a commit) before assuming it isn't working.
+
 ---
 
 ## Phase 1 — Pilot: OlindaJohnsonSpeaks (Netlify → Static Web Apps)
@@ -242,7 +256,15 @@ Add `staticwebapp.config.json` at the deploy root for headers/redirects (the Net
 
 Only after several clean days: Netlify dashboard → site → Delete. Keep the GitHub repo — it's now the deployment source for Azure.
 
-**Pilot exit criteria:** green Action deploys on push, site serves from Azure (free hostname or custom domain), rollback path understood. Now the playbook is proven.
+**Status: done.** Netlify site (`olindajohnsonspeaks`) deleted via `netlify sites:delete` on
+2026-09-14, same day as cutover rather than after a waiting period — an explicit call, not the
+recommended default above.
+
+The booking form (Netlify Forms) was also replaced in this pilot, ahead of Phase 2's plan —
+see the Phase 2.2 table below; same Azure Function + ACS Email pattern, done early because this
+site's booking form was the only Netlify-proprietary piece blocking a clean cutover.
+
+**Pilot exit criteria:** green Action deploys on push, site serves from Azure (free hostname or custom domain), rollback path understood. **Met.** Now the playbook is proven — next up is Phase 2 (stampedpassports.com), whenever that migration starts.
 
 ---
 
