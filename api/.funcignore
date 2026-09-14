@@ -1,0 +1,9 @@
+*.js.map
+.git*
+.vscode
+local.settings.json
+test
+.venv
+__blobstorage__
+__queuestorage__
+__azurite_db*__.json
