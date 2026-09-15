@@ -7,3 +7,9 @@ api/local.settings.json
 api/bin/
 api/obj/
 DrOlindaJohnson/Speaker_Compensation_Framework.*
+DrOlindaJohnson 2/Speaker_Compensation_Framework.*
+
+# Claude Code local tooling/skill installs, not site content
+.agents/
+.claude/skills/
+skills-lock.json
