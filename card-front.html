@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Card — Front · Dr. Olinda Johnson, PhD</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== Design tokens ===== */
+    :root {
+      --violet-900: #1E1438;
+      --violet-700: #3F3185;
+      --violet-600: #5E45A8;
+      --violet-500: #7356B8;
+      --violet-400: #9580CC;
+      --violet-300: #BEB0E0;
+      --violet-200: #D8D0EF;
+      --violet-100: #EBE6F8;
+      --violet-050: #F5F2FB;
+      --silver-600: #8E929E;
+      --silver-500: #A4A8B4;
+      --silver-400: #BCC0CC;
+      --silver-200: #D4D8E2;
+      --silver-100: #E5E8EF;
+      --ink:   #1E1A2C;
+      --body:  #3C3848;
+      --muted: #6A6678;
+      --cream: #FDFCFF;
+      --white: #FFFFFF;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans:  "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--silver-100);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    /* ===== The card ===== */
+    .card {
+      /* print defaults */
+      --card-w: 3.5in;
+      --card-h: 2.0in;
+      --base: 7pt;
+      width: var(--card-w);
+      height: var(--card-h);
+      font-size: var(--base);
+      position: relative;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background:
+        radial-gradient(ellipse at 110% -20%, rgba(115, 86, 184, 0.10), transparent 55%),
+        radial-gradient(ellipse at -10% 120%, rgba(188, 192, 204, 0.18), transparent 55%),
+        var(--cream);
+      padding: 2.2em 2.6em;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      row-gap: 1.0em;
+    }
+
+    /* On-screen preview: 2× scale */
+    @media screen {
+      .card {
+        --card-w: 7in;
+        --card-h: 4in;
+        --base: 14pt;
+        border-radius: 0.06in;
+        box-shadow:
+          0 1px 0 var(--silver-200),
+          0 30px 60px -28px rgba(30, 20, 56, 0.28),
+          0 8px 18px -10px rgba(30, 20, 56, 0.12);
+      }
+    }
+
+    /* Print / export: actual 3.5"×2" trim, no body margins */
+    @media print {
+      @page { size: 3.5in 2in; margin: 0; }
+      body { background: var(--white); padding: 0; min-height: 0; display: block; }
+      .card { box-shadow: none; border-radius: 0; }
+    }
+
+    /* Decorative rings — bottom-right, echoes the hero portrait */
+    .card__ring,
+    .card__ring--inner {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .card__ring {
+      width: 11em; height: 11em;
+      right: -5.5em; bottom: -5.5em;
+      border: 1px dashed var(--violet-300);
+      opacity: 0.5;
+    }
+    .card__ring--inner {
+      width: 8.4em; height: 8.4em;
+      right: -4.2em; bottom: -4.2em;
+      border: 1px solid var(--silver-400);
+      opacity: 0.5;
+    }
+
+    /* Eyebrow */
+    .card__eyebrow {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.78em;
+      letter-spacing: 0.07em;
+      color: var(--violet-500);
+      display: flex; align-items: center; gap: 0.85em;
+      position: relative; z-index: 1;
+      white-space: nowrap;
+    }
+    .card__eyebrow::before {
+      content: "";
+      width: 2.4em; height: 1px;
+      background: var(--silver-400);
+      flex: 0 0 auto;
+    }
+
+    /* Name lockup */
+    .card__lockup { align-self: center; position: relative; z-index: 1; }
+    .card__name {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 2.5em;
+      line-height: 1.0;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      margin: 0 0 0.30em;
+      white-space: nowrap;
+    }
+    .card__name-suffix { color: var(--violet-600); font-weight: 400; }
+    .card__creds {
+      font-family: var(--sans);
+      font-size: 0.78em;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--violet-700);
+      margin: 0;
+    }
+    .card__creds .dot {
+      color: var(--violet-300);
+      margin: 0 0.45em;
+      font-weight: 400;
+    }
+
+    /* Footer */
+    .card__footer {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: end;
+      column-gap: 1.4em;
+      padding-top: 0.9em;
+      border-top: 1px solid var(--silver-200);
+    }
+    .card__role {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.92em;
+      color: var(--body);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .card__site {
+      font-family: var(--sans);
+      font-size: 0.72em;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-align: right;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" aria-label="Business card — front">
+    <div class="card__ring" aria-hidden="true"></div>
+    <div class="card__ring--inner" aria-hidden="true"></div>
+
+    <div class="card__eyebrow">AWHONN Instructor Trainer &middot; Since 1997</div>
+
+    <div class="card__lockup">
+      <h1 class="card__name">Olinda Johnson<span class="card__name-suffix">, PhD</span></h1>
+      <div class="card__creds">RNC<span class="dot">&middot;</span>CNS<span class="dot">&middot;</span>APN</div>
+    </div>
+
+    <div class="card__footer">
+      <div class="card__role">Nurse Educator &amp; CEU Speaker</div>
+      <div class="card__site">OlindaJohnsonSpeaks.com</div>
+    </div>
+  </div>
+</body>
+</html>
