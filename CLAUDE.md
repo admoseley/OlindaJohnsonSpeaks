@@ -100,22 +100,27 @@ Other signals to surface consistently:
 - Clinical Educator at Houston Methodist
 - Published in *JOGNN* (runner-up for 2016 Best of JOGNN Writing Award)
 
-## Booking form backend (not yet wired)
+## Hosting — Azure Static Web Apps
 
-The form currently calls `event.preventDefault()` and shows an alert. Before launch, pick one:
+Site is hosted on **Azure Static Web Apps** (`swa-olindajohnson`, Free tier, resource group
+`rg-olindajohnson-prod`), not Netlify — the Netlify site has been decommissioned and deleted.
+`.github/workflows/azure-swa-deploy.yml` deploys the static site and the `/api` Azure Function on
+every push to `main` (or via manual `workflow_dispatch`). See `AZURE-MIGRATION.md` for the full
+migration record.
 
-**Option A — Netlify Forms** (free if hosting on Netlify):
-```html
-<form class="form" name="booking" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="booking" />
-```
+## Booking form backend — Azure Function + Communication Services Email
 
-**Option B — Formspree** (simplest otherwise):
-```html
-<form class="form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
+The form POSTs JSON to `/api/booking` (`api/src/functions/booking.js`, Azure Functions v4 model,
+managed by the Static Web App). It validates required fields, silently drops honeypot
+(`botcheck`) submissions, and sends the request via Azure Communication Services Email
+(`@azure/communication-email`) to the address in the `BOOKING_TO_EMAIL` app setting. The client JS
+in `index.html` checks the real `{success, message}` JSON response rather than assuming any
+resolved fetch means success.
 
-Remove the `onsubmit` handler when switching to a real backend. Add a success state (redirect or inline confirmation) — do not leave the user on a blank form after submit.
+Required Static Web App app settings (`az staticwebapp appsettings set`, never committed):
+`ACS_CONNECTION_STRING`, `BOOKING_FROM_EMAIL`, `BOOKING_TO_EMAIL`. Note: `az communication
+list-key`'s connection string field is `primaryConnectionString`, not `connectionString` — this
+tripped up the initial setup.
 
 ## Remaining placeholders — Dr. Johnson to provide
 
@@ -151,5 +156,5 @@ When content arrives, find-and-replace the placeholder text and remove the `.pla
 - [ ] Mobile layout at 375px (iPhone SE) and up
 - [ ] All six topic names match between §02 cards and §06 dropdown
 - [ ] `og-image.jpg` (1200×630) exists at the root — currently referenced in OG tags but not yet created
-- [ ] Form backend wired and success state working
+- [x] Form backend wired (Azure Function + ACS Email) and success state working
 - [ ] `Deploy/` folder in sync with root `index.html` before pushing to host

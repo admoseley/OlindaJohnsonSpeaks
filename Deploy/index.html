@@ -1427,8 +1427,8 @@
         </p>
       </div>
 
-      <form class="form" id="booking-form" name="booking" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="booking" />
+      <form class="form" id="booking-form" name="booking" method="POST">
+        <p hidden><label>Don&rsquo;t fill this out if you&rsquo;re human: <input name="botcheck" tabindex="-1" autocomplete="off" /></label></p>
         <div class="form__row form__row--2">
           <div class="field">
             <label for="org">Organization <span class="required">*</span></label>
@@ -1568,13 +1568,17 @@
       if (!form) return;
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        fetch('/', {
+        var data = Object.fromEntries(new FormData(form).entries());
+        fetch('/api/booking', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
-        }).then(function () {
-          form.style.display = 'none';
-          success.style.display = 'block';
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (response) {
+          return response.json().then(function (result) {
+            if (!response.ok || !result.success) throw new Error(result.message || 'Request failed');
+            form.style.display = 'none';
+            success.style.display = 'block';
+          });
         }).catch(function () {
           alert('Something went wrong. Please try again or email Dr. Johnson directly.');
         });
