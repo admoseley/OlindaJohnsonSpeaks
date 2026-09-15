@@ -67,26 +67,27 @@ Nine sections in order, all anchored in the single HTML file:
 | _(none)_ | Hero | Circular headshot with silver ring + dashed lavender outer ring |
 | `#trusted` | Trusted by | Text strip only — no logos (permission issues) |
 | `#about` | §01 About | Bio + credentials card + 3-stat row + pull quote |
-| `#topics` | §02 Training Topics | 6 topics in 3 groups of 2 |
+| `#topics` | §02 Training Topics | 7 topics across 3 groups (Health Equity group holds 3) |
 | `#engagements` | §03 Recent Engagements | 12 past appearances |
 | `#testimonials` | §04 What Hosts Say | 3 testimonial cards |
 | `#logistics` | §05 Logistics | Formats, CEU hours, travel, honorarium |
 | `#booking` | §06 Request Training | Booking form |
 | _(none)_ | Footer | Brand, nav, contact, copyright |
 
-## The six training topics — must stay in sync between §02 and §06 dropdown
+## The seven training topics — must stay in sync between §02 and §06 dropdown
 
 **Clinical OB Training**
 1. Intermediate & Advanced Fetal Monitoring — AWHONN-credentialed
 2. High-Risk Obstetrics & OB Emergencies
 
-**Health Equity & Maternal Outcomes**
+**Health Equity & Women's Health**
 3. Implicit Bias & African American Maternal Health
 4. Pregnancy Loss, Grief & Bereavement Care
+5. Women's Heart Health & Know Your Numbers — AHA Go Red collaboration
 
 **Nursing Excellence**
-5. Vigilance, Civility & Leadership at the Bedside
-6. Health & Humor: Stress, Burnout & Resilience
+6. Vigilance, Civility & Leadership at the Bedside
+7. Health & Humor: Stress, Burnout & Resilience
 
 If a topic name changes, update **both** `index.html` locations.
 
@@ -126,13 +127,15 @@ tripped up the initial setup.
 
 Grep `index.html` for `placeholder` (CSS class) or `[` to find any remaining gaps. Outstanding items:
 
-1. CEU contact hours per topic (6 topics)
-2. CEU approving body (AWHONN, TNA, ANCC, or other)
-3. Travel policy (local/regional/national/virtual tiers)
-4. Honorarium structure
-5. Response-time commitment for booking inquiries
-6. 3–5 testimonials with full name, title, org, and publish permission
-7. Contact email (and optional phone) in the footer
+1. CEU contact hours per topic (7 topics) — the only `.placeholder` spans left in the topic cards
+2. CEU approving body (AWHONN, TNA, ANCC, or other). Per the Compensation Framework, ANCC accreditation + contact-hour calculation is normally the *host's* responsibility unless contracted separately — confirm before implying she supplies filable CEU docs.
+3. 3–5 testimonials with full name, title, org, and publish permission (§04 still fully placeholder)
+
+Resolved from the updated One-Sheet / Compensation Framework (2025–2026):
+- Travel → "Houston-based; national + virtual; host covers travel/lodging/per diem (rider)"
+- Honorarium → "Scaled by audience/format/length — quote on request" (do **not** publish the internal Tier A–E fee numbers; that document is internal-only)
+- Booking response window → two business days (Framework commits to a 48-hour first response)
+- Contact email + phone are in the footer (⚠ verify the 712 area code — that's Iowa, not Houston)
 
 Note: The domain is already hardcoded as `www.olindajohnsonspeaks.com` in the OG/Twitter meta tags — the apex-vs-www question is de facto answered.
 
